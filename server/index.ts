@@ -20,5 +20,11 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Emergency alerts routes
+  app.get("/api/alerts", getAlerts);
+  app.post("/api/alerts", createAlert);
+  app.get("/api/emergency-contacts", getEmergencyContacts);
+  app.get("/api/rwanda-locations", getRwandaLocations);
+
   return app;
 }
