@@ -74,9 +74,19 @@ export default function Index() {
           latestAlert.latitude, latestAlert.longitude
         );
         notificationService.sendBrowserNotification(latestAlert, distance);
+
+        // Auto-offer location sharing for critical nearby emergencies
+        if (latestAlert.severity === 'critical' && distance <= 1) {
+          setShowLocationShare(true);
+        }
       }
     }
   }, [alerts, userLocation]);
+
+  // Check if currently sharing location
+  useEffect(() => {
+    setIsLocationSharing(locationSharingService.isLocationSharing());
+  }, []);
 
   const checkForNewAlerts = async () => {
     try {
