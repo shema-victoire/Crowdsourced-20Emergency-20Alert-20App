@@ -73,6 +73,25 @@ export default function Index() {
     }
   }, [alerts, userLocation]);
 
+  const checkForNewAlerts = async () => {
+    try {
+      const response = await fetch('/api/alerts');
+      const data = await response.json();
+
+      if (data.success && data.alerts.length > 0) {
+        // Check if there are any new alerts
+        const currentAlertIds = alerts.map(alert => alert.id);
+        const newAlerts = data.alerts.filter((alert: EmergencyAlert) => !currentAlertIds.includes(alert.id));
+
+        if (newAlerts.length > 0) {
+          setAlerts(data.alerts);
+        }
+      }
+    } catch (error) {
+      console.error('Error checking for new alerts:', error);
+    }
+  };
+
   const fetchInitialData = async () => {
     try {
       setIsLoading(true);
