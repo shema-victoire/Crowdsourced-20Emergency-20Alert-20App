@@ -382,46 +382,18 @@ export default function Index() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="h-full p-0">
-                {/* Map Placeholder with Rwanda outline */}
-                <div className="h-full bg-gradient-to-br from-green-50 to-blue-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-center z-10">
-                    <MapPin className="h-12 w-12 text-green-600 mx-auto mb-2" />
-                    <p className="text-gray-700 font-medium">
-                      {language === 'en' ? 'Rwanda Emergency Map' : 'Ikarita y\'Ubwoba - Rwanda'}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {language === 'en' ? 'Real-time emergency locations' : 'Amakuru y\'ubwoba mu gihe nyacyo'}
-                    </p>
-                  </div>
-                  
-                  {/* Simulated Rwanda map pins */}
-                  {alerts.slice(0, 5).map((alert, index) => {
-                    const positions = [
-                      'top-1/3 left-1/2', // Kigali area
-                      'top-1/4 left-1/3', // Northern
-                      'top-2/3 left-1/3', // Southern
-                      'top-1/2 right-1/4', // Eastern
-                      'top-1/2 left-1/4'  // Western
-                    ];
-                    
-                    return (
-                      <div
-                        key={alert.id}
-                        className={`absolute ${positions[index] || 'top-1/2 left-1/2'}`}
-                      >
-                        <div className={`p-2 rounded-full shadow-lg animate-pulse text-white ${
-                          alert.alert_type === 'fire' ? 'bg-red-500' : 
-                          alert.alert_type === 'flood' ? 'bg-blue-500' : 
-                          alert.alert_type === 'accident' ? 'bg-orange-500' :
-                          alert.alert_type === 'medical' ? 'bg-green-500' :
-                          'bg-gray-500'
-                        }`}>
-                          <span className="text-sm">{getEmergencyIcon(alert.alert_type)}</span>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                <RwandaEmergencyMap
+                  alerts={alerts}
+                  userLocation={userLocation}
+                  onLocationSelect={(lat, lng, address) => {
+                    setReportForm(prev => ({
+                      ...prev,
+                      latitude: lat,
+                      longitude: lng,
+                      location_address: address
+                    }));
+                  }}
+                />
               </CardContent>
             </Card>
           </div>
