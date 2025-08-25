@@ -94,13 +94,11 @@ interface RwandaEmergencyMapProps {
   onLocationSelect?: (lat: number, lng: number, address: string) => void;
 }
 
-export default function RwandaEmergencyMap({ 
-  alerts, 
-  userLocation, 
-  onLocationSelect 
+export default function RwandaEmergencyMap({
+  alerts,
+  userLocation,
+  onLocationSelect
 }: RwandaEmergencyMapProps) {
-  const mapRef = useRef<L.Map>(null);
-
   // Rwanda center coordinates (Kigali)
   const rwandaCenter: [number, number] = [-1.9441, 30.0619];
 
