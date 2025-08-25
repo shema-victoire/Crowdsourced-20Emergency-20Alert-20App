@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import { MapPin } from 'lucide-react';
 import { EmergencyAlert } from '@/lib/rwanda-data';
 
 // Fix for default markers in react-leaflet
