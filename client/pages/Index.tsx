@@ -142,24 +142,24 @@ export default function Index() {
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="bg-primary rounded-lg p-2">
-                <Zap className="h-6 w-6 text-white" />
+                <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">SafeAlert</h1>
-                <p className="text-sm text-gray-500">Emergency Response Platform</p>
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900">SafeAlert</h1>
+                <p className="text-xs sm:text-sm text-gray-500 hidden sm:block">Emergency Response Platform</p>
               </div>
             </div>
-            
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="hidden md:flex items-center gap-2 text-sm text-gray-600">
                 <MapPin className="h-4 w-4" />
                 {userLocation ? "Location: Active" : "Location: Disabled"}
               </div>
-              <Button variant="outline" size="sm">
-                <Phone className="h-4 w-4 mr-2" />
-                Call 911
+              <Button variant="outline" size="sm" className="text-xs sm:text-sm">
+                <Phone className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Call 911</span>
               </Button>
             </div>
           </div>
