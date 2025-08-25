@@ -273,7 +273,7 @@ export default function Index() {
                         {getEmergencyIcon(alert.type)}
                         <div className="space-y-1 min-w-0 flex-1">
                           <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                            <Badge className={getSeverityColor(alert.severity)} variant="secondary" size="sm">
+                            <Badge className={getSeverityColor(alert.severity)} variant="secondary">
                               {alert.severity.toUpperCase()}
                             </Badge>
                             <span className="text-xs text-gray-500">{alert.distance}</span>
