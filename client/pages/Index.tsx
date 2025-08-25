@@ -44,7 +44,34 @@ export default function Index() {
   useEffect(() => {
     fetchInitialData();
     requestGeolocation();
+
+    // Set up periodic checking for new alerts (every 30 seconds)
+    const alertInterval = setInterval(() => {
+      checkForNewAlerts();
+    }, 30000);
+
+    return () => clearInterval(alertInterval);
   }, []);
+
+  // Monitor for new alerts and send notifications
+  useEffect(() => {
+    if (alerts.length > 0 && userLocation) {
+      // Check the latest alert for notification
+      const latestAlert = alerts[0];
+      const alertTime = new Date(latestAlert.created_at);
+      const now = new Date();
+      const minutesAgo = (now.getTime() - alertTime.getTime()) / 60000;
+
+      // Only notify for alerts within the last 2 minutes
+      if (minutesAgo <= 2 && notificationService.shouldNotifyUser(latestAlert, userLocation)) {
+        const distance = notificationService.calculateDistance(
+          userLocation.lat, userLocation.lng,
+          latestAlert.latitude, latestAlert.longitude
+        );
+        notificationService.sendBrowserNotification(latestAlert, distance);
+      }
+    }
+  }, [alerts, userLocation]);
 
   const fetchInitialData = async () => {
     try {
