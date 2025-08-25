@@ -9,6 +9,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, AlertTriangle, Flame, Droplets, Car, Users, Clock, Zap, Shield, Plus } from "lucide-react";
+import dynamic from 'next/dynamic';
+
+// Dynamically import the map component to avoid SSR issues
+const RwandaEmergencyMap = dynamic(() => import('@/components/RwandaEmergencyMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-full bg-gradient-to-br from-green-50 to-blue-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin h-8 w-8 text-green-600 mx-auto mb-2">🗺️</div>
+        <p className="text-gray-600">Gukusanya ikarita ya Rwanda...</p>
+      </div>
+    </div>
+  ),
+});
 import { 
   EmergencyAlert, 
   EmergencyContact, 
