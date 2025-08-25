@@ -8,7 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, AlertTriangle, Flame, Droplets, Car, Users, Clock, Zap, Shield, Plus } from "lucide-react";
+import { MapPin, Phone, AlertTriangle, Flame, Droplets, Car, Users, Clock, Zap, Shield, Plus, Moon, Sun, Share2, Navigation } from "lucide-react";
+import { useTheme } from "next-themes";
 import RwandaEmergencyMap from '@/components/RwandaEmergencyMap';
 import {
   EmergencyAlert,
@@ -20,6 +21,7 @@ import {
   TRANSLATIONS
 } from "@/lib/rwanda-data";
 import { notificationService } from "@/lib/notifications";
+import { locationSharingService } from "@/lib/location-sharing";
 
 export default function Index() {
   const [alerts, setAlerts] = useState<EmergencyAlert[]>([]);
