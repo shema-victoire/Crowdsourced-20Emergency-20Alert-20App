@@ -57,6 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        emergency: {
+          fire: "#dc2626",
+          flood: "#1d4ed8",
+          accident: "#f59e0b",
+          critical: "#b91c1c",
+          warning: "#f97316",
+          safe: "#16a34a",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
