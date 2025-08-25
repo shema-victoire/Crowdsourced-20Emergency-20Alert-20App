@@ -269,22 +269,22 @@ export default function Index() {
                 {alerts.map((alert) => (
                   <Alert key={alert.id} className={getEmergencyColor(alert.type)}>
                     <div className="flex items-start justify-between">
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-2 sm:gap-3 min-w-0 flex-1">
                         {getEmergencyIcon(alert.type)}
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-2">
-                            <Badge className={getSeverityColor(alert.severity)} variant="secondary">
+                        <div className="space-y-1 min-w-0 flex-1">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                            <Badge className={getSeverityColor(alert.severity)} variant="secondary" size="sm">
                               {alert.severity.toUpperCase()}
                             </Badge>
                             <span className="text-xs text-gray-500">{alert.distance}</span>
                           </div>
-                          <AlertDescription className="font-medium">
+                          <AlertDescription className="font-medium text-sm sm:text-base">
                             {alert.description}
                           </AlertDescription>
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
-                            <span className="flex items-center gap-1">
-                              <MapPin className="h-3 w-3" />
-                              {alert.location}
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs text-gray-500">
+                            <span className="flex items-center gap-1 truncate">
+                              <MapPin className="h-3 w-3 flex-shrink-0" />
+                              <span className="truncate">{alert.location}</span>
                             </span>
                             <span className="flex items-center gap-1">
                               <Clock className="h-3 w-3" />
