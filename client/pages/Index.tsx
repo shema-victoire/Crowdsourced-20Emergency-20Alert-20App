@@ -311,22 +311,26 @@ export default function Index() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button className="w-full justify-start bg-red-600 hover:bg-red-700 text-white">
+                <Button className="w-full justify-center sm:justify-start bg-red-600 hover:bg-red-700 text-white text-sm">
                   <Flame className="h-4 w-4 mr-2" />
-                  Report Fire Emergency
+                  <span className="hidden sm:inline">Report Fire Emergency</span>
+                  <span className="sm:hidden">Fire Emergency</span>
                 </Button>
-                <Button className="w-full justify-start bg-blue-600 hover:bg-blue-700 text-white">
+                <Button className="w-full justify-center sm:justify-start bg-blue-600 hover:bg-blue-700 text-white text-sm">
                   <Droplets className="h-4 w-4 mr-2" />
-                  Report Flood/Water Emergency
+                  <span className="hidden sm:inline">Report Flood/Water Emergency</span>
+                  <span className="sm:hidden">Flood Emergency</span>
                 </Button>
-                <Button className="w-full justify-start bg-orange-600 hover:bg-orange-700 text-white">
+                <Button className="w-full justify-center sm:justify-start bg-orange-600 hover:bg-orange-700 text-white text-sm">
                   <Car className="h-4 w-4 mr-2" />
-                  Report Traffic Accident
+                  <span className="hidden sm:inline">Report Traffic Accident</span>
+                  <span className="sm:hidden">Traffic Accident</span>
                 </Button>
                 <div className="pt-2 border-t">
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button variant="outline" className="w-full justify-center sm:justify-start text-sm">
                     <Users className="h-4 w-4 mr-2" />
-                    View Nearby Volunteers
+                    <span className="hidden sm:inline">View Nearby Volunteers</span>
+                    <span className="sm:hidden">Volunteers</span>
                   </Button>
                 </div>
               </CardContent>
