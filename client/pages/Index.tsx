@@ -337,18 +337,55 @@ export default function Index() {
                 onClick={() => setLanguage(language === 'en' ? 'rw' : 'en')}
                 className="text-xs"
               >
-                {language === 'en' ? 'Kinyarwanda' : 'English'}
+                🌐 {language === 'en' ? 'RW' : 'EN'}
               </Button>
-              
-              <div className="hidden md:flex items-center gap-2 text-sm text-gray-600">
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="text-xs"
+              >
+                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </Button>
+
+              {isLocationSharing ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleStopLocationSharing}
+                  className="text-xs bg-green-50 border-green-200 text-green-700 hover:bg-green-100"
+                >
+                  <Navigation className="h-4 w-4 sm:mr-2" />
+                  <span className="hidden sm:inline">
+                    {language === 'en' ? 'Stop Sharing' : 'Hagarika'}
+                  </span>
+                  <span className="sm:hidden">📍</span>
+                </Button>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleStartLocationSharing()}
+                  className="text-xs bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100"
+                >
+                  <Share2 className="h-4 w-4 sm:mr-2" />
+                  <span className="hidden sm:inline">
+                    {language === 'en' ? 'Share Location' : 'Sangira Ahantu'}
+                  </span>
+                  <span className="sm:hidden">📍</span>
+                </Button>
+              )}
+
+              <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                 <MapPin className="h-4 w-4" />
                 {userLocation ? "Ahantu: Gakondo" : "Ahantu: Ntagaragara"}
               </div>
-              
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="text-xs sm:text-sm bg-red-50 border-red-200 text-red-700 hover:bg-red-100"
+
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-xs sm:text-sm bg-red-50 border-red-200 text-red-700 hover:bg-red-100 dark:bg-red-900 dark:border-red-800 dark:text-red-300"
                 onClick={handleCall911}
               >
                 <Phone className="h-4 w-4 sm:mr-2" />
