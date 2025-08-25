@@ -10,15 +10,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, AlertTriangle, Flame, Droplets, Car, Users, Clock, Zap, Shield, Plus } from "lucide-react";
 import RwandaEmergencyMap from '@/components/RwandaEmergencyMap';
-import { 
-  EmergencyAlert, 
-  EmergencyContact, 
+import {
+  EmergencyAlert,
+  EmergencyContact,
   RwandaLocation,
   RWANDA_EMERGENCY_NUMBERS,
   EMERGENCY_TYPES,
   RWANDA_PROVINCES,
-  TRANSLATIONS 
+  TRANSLATIONS
 } from "@/lib/rwanda-data";
+import { notificationService } from "@/lib/notifications";
 
 export default function Index() {
   const [alerts, setAlerts] = useState<EmergencyAlert[]>([]);
