@@ -170,13 +170,13 @@ export default function Index() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Map Area */}
           <div className="lg:col-span-2">
-            <Card className="h-[600px]">
+            <Card className="h-[400px] sm:h-[500px] lg:h-[600px]">
               <CardHeader className="pb-4">
-                <CardTitle className="flex items-center justify-between">
-                  <span>Emergency Map</span>
+                <CardTitle className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <span className="text-lg sm:text-xl">Emergency Map</span>
                   <Dialog open={isReporting} onOpenChange={setIsReporting}>
                     <DialogTrigger asChild>
-                      <Button className="bg-primary hover:bg-primary/90">
+                      <Button className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
                         <AlertTriangle className="h-4 w-4 mr-2" />
                         Report Emergency
                       </Button>
