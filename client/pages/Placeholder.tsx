@@ -19,7 +19,8 @@ export default function Placeholder({ title, description }: PlaceholderProps) {
         <CardContent className="text-center space-y-4">
           <p className="text-gray-600">{description}</p>
           <p className="text-sm text-gray-500">
-            This page is under development. Continue prompting to fill in this page content!
+            This page is under development. Continue prompting to fill in this
+            page content!
           </p>
           <Link to="/">
             <Button className="w-full">
