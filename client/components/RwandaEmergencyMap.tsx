@@ -1,45 +1,62 @@
-import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
-import { MapPin } from 'lucide-react';
-import { EmergencyAlert } from '@/lib/rwanda-data';
+import { useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
+import { MapPin } from "lucide-react";
+import { EmergencyAlert } from "@/lib/rwanda-data";
 
 // Fix for default markers in react-leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  iconRetinaUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
 // Custom emergency icons
 const createEmergencyIcon = (type: string, severity: string) => {
   const getColor = () => {
     switch (type) {
-      case 'fire': return '#dc2626';
-      case 'flood': return '#1d4ed8';
-      case 'accident': return '#f59e0b';
-      case 'medical': return '#16a34a';
-      case 'crime': return '#7c3aed';
-      case 'weather': return '#6b7280';
-      default: return '#6b7280';
+      case "fire":
+        return "#dc2626";
+      case "flood":
+        return "#1d4ed8";
+      case "accident":
+        return "#f59e0b";
+      case "medical":
+        return "#16a34a";
+      case "crime":
+        return "#7c3aed";
+      case "weather":
+        return "#6b7280";
+      default:
+        return "#6b7280";
     }
   };
 
   const getEmoji = () => {
     switch (type) {
-      case 'fire': return '🔥';
-      case 'flood': return '💧';
-      case 'accident': return '🚗';
-      case 'medical': return '🏥';
-      case 'crime': return '🚨';
-      case 'weather': return '���️';
-      default: return '⚠️';
+      case "fire":
+        return "🔥";
+      case "flood":
+        return "💧";
+      case "accident":
+        return "🚗";
+      case "medical":
+        return "🏥";
+      case "crime":
+        return "🚨";
+      case "weather":
+        return "���️";
+      default:
+        return "⚠️";
     }
   };
 
-  const size = severity === 'critical' ? 40 : severity === 'high' ? 35 : 30;
-  
+  const size = severity === "critical" ? 40 : severity === "high" ? 35 : 30;
+
   return L.divIcon({
     html: `
       <div style="
@@ -65,7 +82,7 @@ const createEmergencyIcon = (type: string, severity: string) => {
         }
       </style>
     `,
-    className: 'emergency-marker',
+    className: "emergency-marker",
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -size / 2],
@@ -75,14 +92,14 @@ const createEmergencyIcon = (type: string, severity: string) => {
 // Component to fit map bounds to show all Rwanda
 function RwandaBounds() {
   const map = useMap();
-  
+
   useEffect(() => {
     // Rwanda bounds: roughly covers the entire country
     const rwandaBounds = L.latLngBounds(
       [-2.917, 28.862], // Southwest coordinates
-      [-1.047, 30.899]  // Northeast coordinates
+      [-1.047, 30.899], // Northeast coordinates
     );
-    
+
     map.fitBounds(rwandaBounds, { padding: [20, 20] });
   }, [map]);
 
@@ -98,7 +115,7 @@ interface RwandaEmergencyMapProps {
 export default function RwandaEmergencyMap({
   alerts,
   userLocation,
-  onLocationSelect
+  onLocationSelect,
 }: RwandaEmergencyMapProps) {
   // Rwanda center coordinates (Kigali)
   const rwandaCenter: [number, number] = [-1.9441, 30.0619];
@@ -107,7 +124,7 @@ export default function RwandaEmergencyMap({
     const now = new Date();
     const alertTime = new Date(timestamp);
     const minutes = Math.floor((now.getTime() - alertTime.getTime()) / 60000);
-    
+
     if (minutes < 1) return "Vuba vuba";
     if (minutes < 60) return `${minutes}m ago`;
     const hours = Math.floor(minutes / 60);
@@ -128,19 +145,19 @@ export default function RwandaEmergencyMap({
       <MapContainer
         center={rwandaCenter}
         zoom={9}
-        style={{ height: '100%', width: '100%' }}
+        style={{ height: "100%", width: "100%" }}
         className="rounded-lg"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        
+
         <RwandaBounds />
 
         {/* User location marker */}
         {userLocation && (
-          <Marker 
+          <Marker
             position={[userLocation.lat, userLocation.lng]}
             icon={L.divIcon({
               html: `
@@ -153,7 +170,7 @@ export default function RwandaEmergencyMap({
                   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
                 "></div>
               `,
-              className: 'user-location-marker',
+              className: "user-location-marker",
               iconSize: [20, 20],
               iconAnchor: [10, 10],
             })}
@@ -179,46 +196,60 @@ export default function RwandaEmergencyMap({
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="text-lg">
-                    {alert.alert_type === 'fire' ? '🔥' : 
-                     alert.alert_type === 'flood' ? '💧' : 
-                     alert.alert_type === 'accident' ? '🚗' : 
-                     alert.alert_type === 'medical' ? '🏥' : 
-                     alert.alert_type === 'crime' ? '🚨' : '⛈️'}
+                    {alert.alert_type === "fire"
+                      ? "🔥"
+                      : alert.alert_type === "flood"
+                        ? "💧"
+                        : alert.alert_type === "accident"
+                          ? "🚗"
+                          : alert.alert_type === "medical"
+                            ? "🏥"
+                            : alert.alert_type === "crime"
+                              ? "🚨"
+                              : "⛈️"}
                   </span>
-                  <span className={`px-2 py-1 rounded text-xs font-medium text-white ${
-                    alert.severity === 'critical' ? 'bg-red-600' :
-                    alert.severity === 'high' ? 'bg-orange-500' :
-                    alert.severity === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
-                  }`}>
+                  <span
+                    className={`px-2 py-1 rounded text-xs font-medium text-white ${
+                      alert.severity === "critical"
+                        ? "bg-red-600"
+                        : alert.severity === "high"
+                          ? "bg-orange-500"
+                          : alert.severity === "medium"
+                            ? "bg-yellow-500"
+                            : "bg-green-500"
+                    }`}
+                  >
                     {alert.severity.toUpperCase()}
                   </span>
                 </div>
-                
+
                 <h3 className="font-bold text-gray-900">{alert.title}</h3>
                 <p className="text-sm text-gray-600">{alert.description}</p>
-                
+
                 <div className="text-xs text-gray-500 space-y-1">
                   <div>📍 {alert.location_address}</div>
-                  <div>🏛️ {alert.province} - {alert.district}</div>
+                  <div>
+                    🏛️ {alert.province} - {alert.district}
+                  </div>
                   <div>⏰ {formatTimeAgo(alert.created_at)}</div>
                   {alert.user_name && <div>👤 {alert.user_name}</div>}
                 </div>
 
                 <div className="flex gap-2 mt-3">
-                  <button 
+                  <button
                     className="flex-1 bg-blue-600 text-white text-xs py-1 px-2 rounded hover:bg-blue-700"
                     onClick={() => {
                       if (userLocation) {
                         const url = `https://www.google.com/maps/dir/${userLocation.lat},${userLocation.lng}/${alert.latitude},${alert.longitude}`;
-                        window.open(url, '_blank');
+                        window.open(url, "_blank");
                       }
                     }}
                   >
                     🗺️ Inzira
                   </button>
-                  <button 
+                  <button
                     className="bg-green-600 text-white text-xs py-1 px-2 rounded hover:bg-green-700"
-                    onClick={() => window.open('tel:112', '_self')}
+                    onClick={() => window.open("tel:112", "_self")}
                   >
                     📞 112
                   </button>
@@ -228,7 +259,7 @@ export default function RwandaEmergencyMap({
           </Marker>
         ))}
       </MapContainer>
-      
+
       {/* Map legend */}
       <div className="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg text-xs z-1000">
         <h4 className="font-bold mb-2">Ibimenyetso</h4>

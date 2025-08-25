@@ -34,9 +34,9 @@ export interface EmergencyAlert {
 // Rwanda Emergency Numbers
 export const RWANDA_EMERGENCY_NUMBERS = {
   POLICE: "112",
-  FIRE_RESCUE: "112", 
+  FIRE_RESCUE: "112",
   MEDICAL: "912",
-  RED_CROSS: "+250788177777"
+  RED_CROSS: "+250788177777",
 };
 
 // Emergency type translations (English/Kinyarwanda)
@@ -45,73 +45,73 @@ export const EMERGENCY_TYPES = {
     en: "Fire Emergency",
     rw: "Ubwoba bw'Umuriro",
     icon: "🔥",
-    color: "emergency-fire"
+    color: "emergency-fire",
   },
   flood: {
-    en: "Flood/Water Emergency", 
+    en: "Flood/Water Emergency",
     rw: "Ubwoba bw'Amazi/Imyuzure",
     icon: "💧",
-    color: "emergency-flood"
+    color: "emergency-flood",
   },
   accident: {
     en: "Traffic Accident",
     rw: "Impanuka y'Ibinyabiziga",
-    icon: "🚗", 
-    color: "emergency-accident"
+    icon: "🚗",
+    color: "emergency-accident",
   },
   medical: {
     en: "Medical Emergency",
     rw: "Ubwoba bw'Ubuvuzi",
     icon: "🏥",
-    color: "emergency-medical"
+    color: "emergency-medical",
   },
   crime: {
     en: "Security/Crime Alert",
     rw: "Ubwoba bw'Umutekano",
     icon: "🚨",
-    color: "emergency-crime"
+    color: "emergency-crime",
   },
   weather: {
     en: "Weather Emergency",
-    rw: "Ubwoba bw'Ikirere", 
+    rw: "Ubwoba bw'Ikirere",
     icon: "⛈️",
-    color: "emergency-weather"
-  }
+    color: "emergency-weather",
+  },
 };
 
 // Rwanda Provinces
 export const RWANDA_PROVINCES = [
   "Kigali City",
-  "Northern Province", 
+  "Northern Province",
   "Southern Province",
   "Eastern Province",
-  "Western Province"
+  "Western Province",
 ];
 
 // Common Kinyarwanda/English phrases
 export const TRANSLATIONS = {
   emergency_report: {
     en: "Report Emergency",
-    rw: "Tanga Raporo y'Ubwoba"
+    rw: "Tanga Raporo y'Ubwoba",
   },
   location: {
     en: "Location",
-    rw: "Ahantu"
+    rw: "Ahantu",
   },
   description: {
-    en: "Description", 
-    rw: "Ibisobanuro"
+    en: "Description",
+    rw: "Ibisobanuro",
   },
   severity: {
     en: "Severity",
-    rw: "Ukurikije"
+    rw: "Ukurikije",
   },
   active_alerts: {
     en: "Active Alerts",
-    rw: "Amakuru Akanguka"
+    rw: "Amakuru Akanguka",
   },
   quick_actions: {
-    en: "Quick Actions", 
-    rw: "Ibikorwa byihuse"
-  }
+    en: "Quick Actions",
+    rw: "Ibikorwa byihuse",
+  },
 };

@@ -1,10 +1,15 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Phone, User, Shield } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Phone, User, Shield } from "lucide-react";
 
 interface User {
   id: string;
@@ -20,17 +25,17 @@ interface AuthWrapperProps {
 export default function AuthWrapper({ children }: AuthWrapperProps) {
   const [user, setUser] = useState<User | null>(null);
   const [showAuth, setShowAuth] = useState(false);
-  const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
+  const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
   const [formData, setFormData] = useState({
-    phone: '',
-    name: '',
-    verificationCode: ''
+    phone: "",
+    name: "",
+    verificationCode: "",
   });
   const [isVerifying, setIsVerifying] = useState(false);
 
   // Mock authentication - in production, this would use Stack Auth
   const handleAuth = async () => {
-    if (authMode === 'signup') {
+    if (authMode === "signup") {
       // Mock signup
       setIsVerifying(true);
       setTimeout(() => {
@@ -38,27 +43,27 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
           id: Date.now().toString(),
           phone: formData.phone,
           name: formData.name,
-          isVerified: true
+          isVerified: true,
         };
         setUser(newUser);
         setShowAuth(false);
         setIsVerifying(false);
-        setFormData({ phone: '', name: '', verificationCode: '' });
+        setFormData({ phone: "", name: "", verificationCode: "" });
       }, 2000);
     } else {
       // Mock signin
       setIsVerifying(true);
       setTimeout(() => {
         const existingUser: User = {
-          id: 'existing',
+          id: "existing",
           phone: formData.phone,
-          name: 'User',
-          isVerified: true
+          name: "User",
+          isVerified: true,
         };
         setUser(existingUser);
         setShowAuth(false);
         setIsVerifying(false);
-        setFormData({ phone: '', name: '', verificationCode: '' });
+        setFormData({ phone: "", name: "", verificationCode: "" });
       }, 1500);
     }
   };
@@ -77,11 +82,12 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
             <div className="flex items-center gap-2 text-yellow-800">
               <Shield className="h-4 w-4" />
               <span className="text-sm">
-                Injira cyangwa wiyandikishe kugira ngo ushobore gutanga raporo z'ubwoba
+                Injira cyangwa wiyandikishe kugira ngo ushobore gutanga raporo
+                z'ubwoba
               </span>
             </div>
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
               variant="outline"
               className="border-yellow-300 text-yellow-800 hover:bg-yellow-100"
               onClick={() => setShowAuth(true)}
@@ -103,8 +109,8 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
                 Muraho, {user.name} ({user.phone})
               </span>
             </div>
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
               variant="outline"
               className="border-green-300 text-green-800 hover:bg-green-100"
               onClick={handleSignOut}
@@ -120,10 +126,12 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
         <DialogContent className="max-w-md mx-auto">
           <DialogHeader>
             <DialogTitle className="text-center">
-              {authMode === 'signin' ? 'Kwinjira - SafeAlert Rwanda' : 'Kwiyandikisha - SafeAlert Rwanda'}
+              {authMode === "signin"
+                ? "Kwinjira - SafeAlert Rwanda"
+                : "Kwiyandikisha - SafeAlert Rwanda"}
             </DialogTitle>
           </DialogHeader>
-          
+
           <div className="space-y-4">
             {!isVerifying ? (
               <>
@@ -134,49 +142,59 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
                     type="tel"
                     placeholder="+250 788 123 456"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     Uzakira ubutumwa bwa SMS kugira ngo wemeze telefoni yawe
                   </p>
                 </div>
 
-                {authMode === 'signup' && (
+                {authMode === "signup" && (
                   <div>
                     <Label htmlFor="name">Amazina yawe</Label>
                     <Input
                       id="name"
                       placeholder="Amazina yawe yose"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                     />
                   </div>
                 )}
 
-                <Button 
-                  onClick={handleAuth} 
+                <Button
+                  onClick={handleAuth}
                   className="w-full bg-primary hover:bg-primary/90"
-                  disabled={!formData.phone || (authMode === 'signup' && !formData.name)}
+                  disabled={
+                    !formData.phone || (authMode === "signup" && !formData.name)
+                  }
                 >
                   <Phone className="h-4 w-4 mr-2" />
-                  {authMode === 'signin' ? 'Kwinjira' : 'Kwiyandikisha'}
+                  {authMode === "signin" ? "Kwinjira" : "Kwiyandikisha"}
                 </Button>
 
                 <div className="text-center">
                   <button
                     type="button"
-                    onClick={() => setAuthMode(authMode === 'signin' ? 'signup' : 'signin')}
+                    onClick={() =>
+                      setAuthMode(authMode === "signin" ? "signup" : "signin")
+                    }
                     className="text-sm text-primary hover:underline"
                   >
-                    {authMode === 'signin' 
-                      ? 'Ntufite konti? Kwiyandikisha' 
-                      : 'Ufite konti? Kwinjira'}
+                    {authMode === "signin"
+                      ? "Ntufite konti? Kwiyandikisha"
+                      : "Ufite konti? Kwinjira"}
                   </button>
                 </div>
               </>
             ) : (
               <div className="text-center py-8">
-                <div className="animate-spin h-8 w-8 text-primary mx-auto mb-4">📱</div>
+                <div className="animate-spin h-8 w-8 text-primary mx-auto mb-4">
+                  📱
+                </div>
                 <h3 className="font-medium mb-2">Kuraguza SMS...</h3>
                 <p className="text-sm text-gray-600">
                   Tuzagukohereza kode yo kwemeza kuri {formData.phone}
