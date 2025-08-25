@@ -24,12 +24,15 @@ import { notificationService } from "@/lib/notifications";
 import { locationSharingService } from "@/lib/location-sharing";
 
 export default function Index() {
+  const { theme, setTheme } = useTheme();
   const [alerts, setAlerts] = useState<EmergencyAlert[]>([]);
   const [emergencyContacts, setEmergencyContacts] = useState<EmergencyContact[]>([]);
   const [rwandaLocations, setRwandaLocations] = useState<RwandaLocation[]>([]);
   const [isReporting, setIsReporting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState<'en' | 'rw'>('en');
+  const [isLocationSharing, setIsLocationSharing] = useState(false);
+  const [showLocationShare, setShowLocationShare] = useState(false);
   const [reportForm, setReportForm] = useState({
     alert_type: "",
     severity: "medium",
