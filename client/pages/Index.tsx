@@ -268,6 +268,35 @@ export default function Index() {
     window.open(`tel:${RWANDA_EMERGENCY_NUMBERS.POLICE}`, '_self');
   };
 
+  const handleStartLocationSharing = async (emergencyType?: string) => {
+    try {
+      const shareId = await locationSharingService.startLocationSharing(emergencyType, 'Emergency location sharing activated');
+      if (shareId) {
+        setIsLocationSharing(true);
+        setShowLocationShare(false);
+
+        // Show sharing options
+        const confirmed = confirm(
+          language === 'en'
+            ? 'Location sharing started! Share with family via WhatsApp or SMS?'
+            : 'Gusangira ahantu byatangiye! Sangira n\'umuryango binyuze kuri WhatsApp cyangwa SMS?'
+        );
+
+        if (confirmed) {
+          locationSharingService.shareViaWhatsApp(shareId);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to start location sharing:', error);
+      alert(language === 'en' ? 'Failed to access your location' : 'Ntabwo byashobokaga kubona ahantu hawe');
+    }
+  };
+
+  const handleStopLocationSharing = () => {
+    locationSharingService.stopAllLocationSharing();
+    setIsLocationSharing(false);
+  };
+
   const t = (key: keyof typeof TRANSLATIONS) => {
     return TRANSLATIONS[key][language];
   };
