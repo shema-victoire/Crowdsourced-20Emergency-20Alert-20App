@@ -528,13 +528,23 @@ export default function Index() {
                   </Button>
                 ))}
                 
-                <div className="pt-2 border-t">
+                <div className="pt-2 border-t space-y-2">
                   <Button variant="outline" className="w-full justify-center sm:justify-start text-sm">
                     <Users className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">
                       {language === 'en' ? 'Emergency Contacts' : 'Aho wahita ukisha'}
                     </span>
                     <span className="sm:hidden">Telefoni</span>
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    className="w-full justify-center sm:justify-start text-sm text-blue-600 border-blue-200 hover:bg-blue-50"
+                    onClick={() => notificationService.testNotification()}
+                  >
+                    <span className="mr-2">🔔</span>
+                    <span className="hidden sm:inline">Test Amakuru</span>
+                    <span className="sm:hidden">Test</span>
                   </Button>
                 </div>
               </CardContent>
