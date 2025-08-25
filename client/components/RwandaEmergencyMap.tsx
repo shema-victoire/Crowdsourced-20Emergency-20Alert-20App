@@ -32,7 +32,7 @@ const createEmergencyIcon = (type: string, severity: string) => {
       case 'accident': return '🚗';
       case 'medical': return '🏥';
       case 'crime': return '🚨';
-      case 'weather': return '⛈️';
+      case 'weather': return '���️';
       default: return '⚠️';
     }
   };
@@ -129,7 +129,6 @@ export default function RwandaEmergencyMap({
         zoom={9}
         style={{ height: '100%', width: '100%' }}
         className="rounded-lg"
-        ref={mapRef}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
