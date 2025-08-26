@@ -74,6 +74,10 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
     setUser(null);
   };
 
+  const t = (key: keyof typeof TRANSLATIONS) => {
+    return TRANSLATIONS[key][language];
+  };
+
   // For now, allow app usage without authentication but show banner
   return (
     <div>
