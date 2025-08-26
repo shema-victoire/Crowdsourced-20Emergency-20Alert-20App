@@ -184,9 +184,9 @@ export default function RwandaEmergencyMap({
           >
             <Popup>
               <div className="text-center">
-                <strong>Aho uri</strong>
+                <strong>{t("your_location")}</strong>
                 <br />
-                <small>Ahantu hawe h'ubu</small>
+                <small>{t("current_location")}</small>
               </div>
             </Popup>
           </Marker>
@@ -252,13 +252,13 @@ export default function RwandaEmergencyMap({
                       }
                     }}
                   >
-                    🗺️ Inzira
+                    🗺️ {t("get_directions")}
                   </button>
                   <button
                     className="bg-green-600 text-white text-xs py-1 px-2 rounded hover:bg-green-700"
                     onClick={() => window.open("tel:112", "_self")}
                   >
-                    📞 112
+                    📞 {t("call_emergency")}
                   </button>
                 </div>
               </div>
@@ -269,22 +269,22 @@ export default function RwandaEmergencyMap({
 
       {/* Map legend */}
       <div className="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg text-xs z-10">
-        <h4 className="font-bold mb-2">Ibimenyetso</h4>
+        <h4 className="font-bold mb-2">{t("map_legend")}</h4>
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span>🔥</span> <span>Umuriro</span>
+            <span>🔥</span> <span>{t("fire")}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>💧</span> <span>Imyuzure</span>
+            <span>💧</span> <span>{t("flood")}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>🚗</span> <span>Impanuka</span>
+            <span>🚗</span> <span>{t("accident")}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>🏥</span> <span>Ubuvuzi</span>
+            <span>🏥</span> <span>{t("medical")}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>🚨</span> <span>Umutekano</span>
+            <span>🚨</span> <span>{t("security")}</span>
           </div>
         </div>
       </div>
