@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import RwandaEmergencyMap from "@/components/RwandaEmergencyMap";
+import { useLanguage } from "@/lib/language-context";
 import {
   EmergencyAlert,
   EmergencyContact,
