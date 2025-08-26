@@ -345,4 +345,12 @@ export const TRANSLATIONS = {
     en: "You will receive an SMS to verify your phone",
     rw: "Uzakira ubutumwa bwa SMS kugira ngo wemeze telefoni yawe",
   },
+  location_sharing_started: {
+    en: "Location sharing started! Share with family via WhatsApp or SMS?",
+    rw: "Gusangira ahantu byatangiye! Sangira n'umuryango binyuze kuri WhatsApp cyangwa SMS?",
+  },
+  location_access_failed: {
+    en: "Failed to access your location",
+    rw: "Ntabwo byashobokaga kubona ahantu hawe",
+  },
 };
