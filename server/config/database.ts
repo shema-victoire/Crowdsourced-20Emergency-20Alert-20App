@@ -4,7 +4,7 @@ const connectionString = process.env.DATABASE_URL;
 
 if (!connectionString) {
   throw new Error(
-    "DATABASE_URL environment variable is required. Please set it in your environment or .env file."
+    "DATABASE_URL environment variable is required. Please set it in your environment or .env file.",
   );
 }
 

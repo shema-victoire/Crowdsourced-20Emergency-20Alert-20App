@@ -88,9 +88,7 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2 text-yellow-800">
               <Shield className="h-4 w-4" />
-              <span className="text-sm">
-                {t("auth_banner_text")}
-              </span>
+              <span className="text-sm">{t("auth_banner_text")}</span>
             </div>
             <Button
               size="sm"

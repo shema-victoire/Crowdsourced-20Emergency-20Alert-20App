@@ -317,7 +317,8 @@ export default function Index() {
     const minutes = Math.floor((now.getTime() - alertTime.getTime()) / 60000);
 
     if (minutes < 1) return t("just_now");
-    if (minutes < 60) return `${minutes}${language === "en" ? "m" : ""} ${t("minutes_ago")}`;
+    if (minutes < 60)
+      return `${minutes}${language === "en" ? "m" : ""} ${t("minutes_ago")}`;
     const hours = Math.floor(minutes / 60);
     return `${hours}${language === "en" ? "h" : ""} ${t("hours_ago")}`;
   };
@@ -372,9 +373,7 @@ export default function Index() {
           <div className="animate-spin h-8 w-8 text-primary mx-auto mb-4">
             ⚡
           </div>
-          <p className="text-gray-600">
-            {t("loading")}
-          </p>
+          <p className="text-gray-600">{t("loading")}</p>
         </div>
       </div>
     );
@@ -431,9 +430,7 @@ export default function Index() {
                   className="text-xs bg-green-50 border-green-200 text-green-700 hover:bg-green-100"
                 >
                   <Navigation className="h-4 w-4 sm:mr-2" />
-                  <span className="hidden sm:inline">
-                    {t("stop_sharing")}
-                  </span>
+                  <span className="hidden sm:inline">{t("stop_sharing")}</span>
                   <span className="sm:hidden">📍</span>
                 </Button>
               ) : (
@@ -507,7 +504,9 @@ export default function Index() {
                             }
                           >
                             <SelectTrigger>
-                              <SelectValue placeholder={t("select_emergency_type")} />
+                              <SelectValue
+                                placeholder={t("select_emergency_type")}
+                              />
                             </SelectTrigger>
                             <SelectContent>
                               {Object.entries(EMERGENCY_TYPES).map(
@@ -559,7 +558,9 @@ export default function Index() {
                               }
                             >
                               <SelectTrigger>
-                                <SelectValue placeholder={t("select_district")} />
+                                <SelectValue
+                                  placeholder={t("select_district")}
+                                />
                               </SelectTrigger>
                               <SelectContent>
                                 {getProvinceDistricts(reportForm.province).map(
@@ -788,7 +789,9 @@ export default function Index() {
                     onClick={() => notificationService.testNotification()}
                   >
                     <span className="mr-2">🔔</span>
-                    <span className="hidden sm:inline">{t("test_notifications")}</span>
+                    <span className="hidden sm:inline">
+                      {t("test_notifications")}
+                    </span>
                     <span className="sm:hidden">🔔</span>
                   </Button>
                 </div>
@@ -800,9 +803,9 @@ export default function Index() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-primary" />
-                  {t("emergency_contacts")}
-                </CardTitle>
+                    <Shield className="h-5 w-5 text-primary" />
+                    {t("emergency_contacts")}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   {emergencyContacts

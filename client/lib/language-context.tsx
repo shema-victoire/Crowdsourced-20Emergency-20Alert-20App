@@ -8,13 +8,15 @@ interface LanguageContextType {
   toggleLanguage: () => void;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === "en" ? "rw" : "en");
+    setLanguage((prev) => (prev === "en" ? "rw" : "en"));
   };
 
   return (

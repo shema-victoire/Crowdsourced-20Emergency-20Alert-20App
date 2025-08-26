@@ -133,7 +133,8 @@ export default function RwandaEmergencyMap({
     const minutes = Math.floor((now.getTime() - alertTime.getTime()) / 60000);
 
     if (minutes < 1) return t("just_now");
-    if (minutes < 60) return `${minutes}${language === "en" ? "m" : ""} ${t("minutes_ago")}`;
+    if (minutes < 60)
+      return `${minutes}${language === "en" ? "m" : ""} ${t("minutes_ago")}`;
     const hours = Math.floor(minutes / 60);
     return `${hours}${language === "en" ? "h" : ""} ${t("hours_ago")}`;
   };

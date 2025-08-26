@@ -23,8 +23,12 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("SafeAlert Error Boundary caught an error:", error, errorInfo);
-    
+    console.error(
+      "SafeAlert Error Boundary caught an error:",
+      error,
+      errorInfo,
+    );
+
     // In production, you might want to log this to an error reporting service
     // like Sentry, LogRocket, etc.
   }
@@ -62,7 +66,7 @@ export class ErrorBoundary extends Component<Props, State> {
                   The emergency app encountered an error. Please try again.
                 </span>
               </p>
-              
+
               {process.env.NODE_ENV === "development" && this.state.error && (
                 <details className="mt-4">
                   <summary className="text-xs text-gray-500 cursor-pointer">
