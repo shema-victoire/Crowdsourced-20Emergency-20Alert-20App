@@ -88,8 +88,7 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
             <div className="flex items-center gap-2 text-yellow-800">
               <Shield className="h-4 w-4" />
               <span className="text-sm">
-                Injira cyangwa wiyandikishe kugira ngo ushobore gutanga raporo
-                z'ubwoba
+                {t("auth_banner_text")}
               </span>
             </div>
             <Button
@@ -99,7 +98,7 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
               onClick={() => setShowAuth(true)}
             >
               <User className="h-4 w-4 mr-2" />
-              Kwinjira / Kwiyandikisha
+              {t("login_register")}
             </Button>
           </div>
         </div>
@@ -112,7 +111,7 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
             <div className="flex items-center gap-2 text-green-800">
               <User className="h-4 w-4" />
               <span className="text-sm">
-                Muraho, {user.name} ({user.phone})
+                {t("welcome_user")}, {user.name} ({user.phone})
               </span>
             </div>
             <Button
@@ -121,7 +120,7 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
               className="border-green-300 text-green-800 hover:bg-green-100"
               onClick={handleSignOut}
             >
-              Gusohoka
+              {t("logout")}
             </Button>
           </div>
         </div>
@@ -133,8 +132,8 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
           <DialogHeader>
             <DialogTitle className="text-center">
               {authMode === "signin"
-                ? "Kwinjira - SafeAlert Rwanda"
-                : "Kwiyandikisha - SafeAlert Rwanda"}
+                ? `${t("login")} - ${t("app_title")}`
+                : `${t("register")} - ${t("app_title")}`}
             </DialogTitle>
           </DialogHeader>
 
@@ -142,27 +141,27 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
             {!isVerifying ? (
               <>
                 <div>
-                  <Label htmlFor="phone">Numero ya telefoni</Label>
+                  <Label htmlFor="phone">{t("phone_number")}</Label>
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+250 788 123 456"
+                    placeholder={t("phone_placeholder")}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
                   />
                   <p className="text-xs text-gray-500 mt-1">
-                    Uzakira ubutumwa bwa SMS kugira ngo wemeze telefoni yawe
+                    {t("sms_verification_info")}
                   </p>
                 </div>
 
                 {authMode === "signup" && (
                   <div>
-                    <Label htmlFor="name">Amazina yawe</Label>
+                    <Label htmlFor="name">{t("full_name")}</Label>
                     <Input
                       id="name"
-                      placeholder="Amazina yawe yose"
+                      placeholder={t("full_name")}
                       value={formData.name}
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
@@ -179,7 +178,7 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
                   }
                 >
                   <Phone className="h-4 w-4 mr-2" />
-                  {authMode === "signin" ? "Kwinjira" : "Kwiyandikisha"}
+                  {authMode === "signin" ? t("login") : t("register")}
                 </Button>
 
                 <div className="text-center">
@@ -191,8 +190,8 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
                     className="text-sm text-primary hover:underline"
                   >
                     {authMode === "signin"
-                      ? "Ntufite konti? Kwiyandikisha"
-                      : "Ufite konti? Kwinjira"}
+                      ? t("no_account_register")
+                      : t("have_account_login")}
                   </button>
                 </div>
               </>
@@ -201,9 +200,9 @@ export default function AuthWrapper({ children, language = "en" }: AuthWrapperPr
                 <div className="animate-spin h-8 w-8 text-primary mx-auto mb-4">
                   📱
                 </div>
-                <h3 className="font-medium mb-2">Kuraguza SMS...</h3>
+                <h3 className="font-medium mb-2">{t("sending_sms")}</h3>
                 <p className="text-sm text-gray-600">
-                  Tuzagukohereza kode yo kwemeza kuri {formData.phone}
+                  {t("verification_text")} {formData.phone}
                 </p>
               </div>
             )}
