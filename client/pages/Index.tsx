@@ -380,7 +380,7 @@ export default function Index() {
             ⚡
           </div>
           <p className="text-gray-600">
-            Gukusanya amakuru ya SafeAlert Rwanda...
+            {t("loading")}
           </p>
         </div>
       </div>
@@ -784,11 +784,9 @@ export default function Index() {
                   >
                     <Users className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">
-                      {language === "en"
-                        ? "Emergency Contacts"
-                        : "Aho wahita ukisha"}
+                      {t("emergency_contacts")}
                     </span>
-                    <span className="sm:hidden">Telefoni</span>
+                    <span className="sm:hidden">📞</span>
                   </Button>
 
                   <Button
@@ -797,8 +795,8 @@ export default function Index() {
                     onClick={() => notificationService.testNotification()}
                   >
                     <span className="mr-2">🔔</span>
-                    <span className="hidden sm:inline">Test Amakuru</span>
-                    <span className="sm:hidden">Test</span>
+                    <span className="hidden sm:inline">{t("test_notifications")}</span>
+                    <span className="sm:hidden">🔔</span>
                   </Button>
                 </div>
               </CardContent>
@@ -809,9 +807,9 @@ export default function Index() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-primary" />
-                    Aho wahita ukisha
-                  </CardTitle>
+                  <Shield className="h-5 w-5 text-primary" />
+                  {t("emergency_contacts")}
+                </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   {emergencyContacts
