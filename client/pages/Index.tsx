@@ -352,10 +352,7 @@ export default function Index() {
       }
     } catch (error) {
       console.error("Failed to start location sharing:", error);
-      const errorMessage = language === "en"
-        ? "Failed to access your location"
-        : "Ntabwo byashobokaga kubona ahantu hawe";
-      alert(errorMessage);
+      alert(t("location_access_failed"));
     }
   };
 
@@ -782,7 +779,7 @@ export default function Index() {
                     <span className="hidden sm:inline">
                       {t("emergency_contacts")}
                     </span>
-                    <span className="sm:hidden">��</span>
+                    <span className="sm:hidden">📞</span>
                   </Button>
 
                   <Button
