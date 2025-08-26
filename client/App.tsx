@@ -6,9 +6,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Placeholder from "./pages/Placeholder";
+import { Suspense, lazy } from "react";
+
+// Code splitting: Load pages dynamically
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Placeholder = lazy(() => import("./pages/Placeholder"));
 import AuthWrapper from "./components/AuthWrapper";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { LanguageProvider } from "./lib/language-context";
