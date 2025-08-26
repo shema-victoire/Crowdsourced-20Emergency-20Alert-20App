@@ -165,4 +165,15 @@
   .leaflet-objects-pane {
     z-index: 1 !important;
   }
+
+  /* Custom map container class */
+  .leaflet-container-custom {
+    z-index: 1 !important;
+    position: relative !important;
+  }
+
+  /* Force all map-related elements to stay below dialogs */
+  .leaflet-container-custom * {
+    z-index: inherit !important;
+  }
 }
