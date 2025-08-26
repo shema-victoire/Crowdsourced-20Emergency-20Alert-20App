@@ -145,8 +145,8 @@ export default function RwandaEmergencyMap({
       <MapContainer
         center={rwandaCenter}
         zoom={9}
-        style={{ height: "100%", width: "100%" }}
-        className="rounded-lg"
+        style={{ height: "100%", width: "100%", zIndex: 1 }}
+        className="rounded-lg leaflet-container-custom"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
