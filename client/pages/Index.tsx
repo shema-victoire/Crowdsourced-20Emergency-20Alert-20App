@@ -399,12 +399,10 @@ export default function Index() {
               </div>
               <div className="min-w-0">
                 <h1 className="text-lg sm:text-xl font-bold text-gray-900">
-                  SafeAlert Rwanda
+                  {t("app_title")}
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-500 hidden sm:block">
-                  {language === "en"
-                    ? "Emergency Response Platform"
-                    : "Urubuga rwo kwihangana n'ubwoba"}
+                  {t("app_subtitle")}
                 </p>
               </div>
             </div>
@@ -441,7 +439,7 @@ export default function Index() {
                 >
                   <Navigation className="h-4 w-4 sm:mr-2" />
                   <span className="hidden sm:inline">
-                    {language === "en" ? "Stop Sharing" : "Hagarika"}
+                    {t("stop_sharing")}
                   </span>
                   <span className="sm:hidden">📍</span>
                 </Button>
@@ -454,7 +452,7 @@ export default function Index() {
                 >
                   <Share2 className="h-4 w-4 sm:mr-2" />
                   <span className="hidden sm:inline">
-                    {language === "en" ? "Share Location" : "Sangira Ahantu"}
+                    {t("share_location")}
                   </span>
                   <span className="sm:hidden">📍</span>
                 </Button>
@@ -462,7 +460,7 @@ export default function Index() {
 
               <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                 <MapPin className="h-4 w-4" />
-                {userLocation ? "Ahantu: Gakondo" : "Ahantu: Ntagaragara"}
+                {userLocation ? t("location_found") : t("location_unknown")}
               </div>
 
               <Button
@@ -472,7 +470,7 @@ export default function Index() {
                 onClick={handleCall911}
               >
                 <Phone className="h-4 w-4 sm:mr-2" />
-                <span className="hidden sm:inline">Hamagara 112</span>
+                <span className="hidden sm:inline">{t("call_emergency")}</span>
                 <span className="sm:hidden">112</span>
               </Button>
             </div>
@@ -488,9 +486,7 @@ export default function Index() {
               <CardHeader className="pb-4">
                 <CardTitle className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <span className="text-lg sm:text-xl">
-                    {language === "en"
-                      ? "Emergency Map - Rwanda"
-                      : "Ikarita y'Ubwoba - Rwanda"}
+                    {t("emergency_map_title")}
                   </span>
                   <Dialog open={isReporting} onOpenChange={setIsReporting}>
                     <DialogTrigger asChild>
@@ -681,9 +677,7 @@ export default function Index() {
               <CardContent className="space-y-4 max-h-96 overflow-y-auto">
                 {alerts.length === 0 ? (
                   <p className="text-gray-500 text-center py-4">
-                    {language === "en"
-                      ? "No active alerts"
-                      : "Nta makuru ahari"}
+                    {t("no_active_alerts")}
                   </p>
                 ) : (
                   alerts.map((alert) => (
