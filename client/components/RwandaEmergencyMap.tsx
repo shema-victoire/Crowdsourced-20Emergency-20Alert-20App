@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import { MapPin } from "lucide-react";
-import { EmergencyAlert } from "@/lib/rwanda-data";
+import { EmergencyAlert, TRANSLATIONS } from "@/lib/rwanda-data";
+import { useLanguage } from "@/lib/language-context";
 
 // Fix for default markers in react-leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
