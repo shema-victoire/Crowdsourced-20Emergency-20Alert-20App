@@ -316,10 +316,10 @@ export default function Index() {
     const alertTime = new Date(timestamp);
     const minutes = Math.floor((now.getTime() - alertTime.getTime()) / 60000);
 
-    if (minutes < 1) return "Vuba vuba"; // "Just now" in Kinyarwanda
-    if (minutes < 60) return `${minutes}m ago`;
+    if (minutes < 1) return t("just_now");
+    if (minutes < 60) return `${minutes}${language === "en" ? "m" : ""} ${t("minutes_ago")}`;
     const hours = Math.floor(minutes / 60);
-    return `${hours}h ago`;
+    return `${hours}${language === "en" ? "h" : ""} ${t("hours_ago")}`;
   };
 
   const getProvinceDistricts = (province: string) => {
