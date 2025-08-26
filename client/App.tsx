@@ -27,7 +27,8 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AuthWrapper>
+          <LanguageProvider>
+            <AuthWrapper>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route
@@ -69,7 +70,8 @@ const App = () => (
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </AuthWrapper>
+            </AuthWrapper>
+          </LanguageProvider>
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
