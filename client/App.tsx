@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Placeholder from "./pages/Placeholder";
 import AuthWrapper from "./components/AuthWrapper";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { LanguageProvider } from "./lib/language-context";
 
 const queryClient = new QueryClient();
 
