@@ -22,10 +22,10 @@ interface User {
 
 interface AuthWrapperProps {
   children: React.ReactNode;
-  language?: "en" | "rw";
 }
 
-export default function AuthWrapper({ children, language = "en" }: AuthWrapperProps) {
+export default function AuthWrapper({ children }: AuthWrapperProps) {
+  const { language } = useLanguage();
   const [user, setUser] = useState<User | null>(null);
   const [showAuth, setShowAuth] = useState(false);
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
