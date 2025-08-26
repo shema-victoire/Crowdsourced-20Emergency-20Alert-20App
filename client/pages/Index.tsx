@@ -412,7 +412,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setLanguage(language === "en" ? "rw" : "en")}
+                onClick={toggleLanguage}
                 className="text-xs"
               >
                 🌐 {language === "en" ? "RW" : "EN"}
