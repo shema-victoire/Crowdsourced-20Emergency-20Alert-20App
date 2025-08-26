@@ -107,3 +107,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Fix z-index layering issues between Leaflet map and dialogs/modals */
+@layer components {
+  /* Ensure dialogs and overlays always appear above the map */
+  [data-radix-dialog-overlay] {
+    z-index: 9999 !important;
+  }
+
+  [data-radix-dialog-content] {
+    z-index: 10000 !important;
+  }
+
+  /* Leaflet map container should have lower z-index than dialogs */
+  .leaflet-container {
+    z-index: 1 !important;
+  }
+
+  /* Leaflet popup should not interfere with dialogs */
+  .leaflet-popup {
+    z-index: 500 !important;
+  }
+
+  /* Leaflet marker icons should not interfere with dialogs */
+  .leaflet-marker-icon {
+    z-index: 400 !important;
+  }
+
+  /* Fix for select dropdown z-index */
+  [data-radix-select-content] {
+    z-index: 10001 !important;
+  }
+
+  /* Fix for toast notifications */
+  [data-sonner-toaster] {
+    z-index: 10002 !important;
+  }
+}
