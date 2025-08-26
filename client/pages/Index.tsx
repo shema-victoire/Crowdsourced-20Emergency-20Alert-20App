@@ -502,7 +502,7 @@ export default function Index() {
                       <div className="space-y-4">
                         <div>
                           <Label htmlFor="emergency-type">
-                            Ubwoko bw'Ubwoba
+                            {t("emergency_type")}
                           </Label>
                           <Select
                             value={reportForm.alert_type}
@@ -514,7 +514,7 @@ export default function Index() {
                             }
                           >
                             <SelectTrigger>
-                              <SelectValue placeholder="Hitamo ubwoko bw'ubwoba" />
+                              <SelectValue placeholder={t("select_emergency_type")} />
                             </SelectTrigger>
                             <SelectContent>
                               {Object.entries(EMERGENCY_TYPES).map(
@@ -529,7 +529,7 @@ export default function Index() {
                         </div>
 
                         <div>
-                          <Label htmlFor="province">Intara</Label>
+                          <Label htmlFor="province">{t("province")}</Label>
                           <Select
                             value={reportForm.province}
                             onValueChange={(value) =>
@@ -541,7 +541,7 @@ export default function Index() {
                             }
                           >
                             <SelectTrigger>
-                              <SelectValue placeholder="Hitamo intara" />
+                              <SelectValue placeholder={t("select_province")} />
                             </SelectTrigger>
                             <SelectContent>
                               {RWANDA_PROVINCES.map((province) => (
@@ -555,7 +555,7 @@ export default function Index() {
 
                         {reportForm.province && (
                           <div>
-                            <Label htmlFor="district">Akarere</Label>
+                            <Label htmlFor="district">{t("district")}</Label>
                             <Select
                               value={reportForm.district}
                               onValueChange={(value) =>
@@ -566,7 +566,7 @@ export default function Index() {
                               }
                             >
                               <SelectTrigger>
-                                <SelectValue placeholder="Hitamo akarere" />
+                                <SelectValue placeholder={t("select_district")} />
                               </SelectTrigger>
                               <SelectContent>
                                 {getProvinceDistricts(reportForm.province).map(
@@ -582,7 +582,7 @@ export default function Index() {
                         )}
 
                         <div>
-                          <Label htmlFor="title">Umutwe</Label>
+                          <Label htmlFor="title">{t("title")}</Label>
                           <Input
                             id="title"
                             value={reportForm.title}
@@ -592,7 +592,7 @@ export default function Index() {
                                 title: e.target.value,
                               })
                             }
-                            placeholder="Andika umutwe w'ubwoba"
+                            placeholder={t("enter_title")}
                           />
                         </div>
 
@@ -607,7 +607,7 @@ export default function Index() {
                                 location_address: e.target.value,
                               })
                             }
-                            placeholder="Aho ubwoba bwabaye (Urugero: KG 15 Ave, Kimisagara)"
+                            placeholder={t("enter_location")}
                           />
                         </div>
 
@@ -624,7 +624,7 @@ export default function Index() {
                                 description: e.target.value,
                               })
                             }
-                            placeholder="Sobanura ubwoba bwose..."
+                            placeholder={t("describe_emergency")}
                             className="min-h-[100px]"
                           />
                         </div>
@@ -634,13 +634,13 @@ export default function Index() {
                             variant="outline"
                             onClick={() => setIsReporting(false)}
                           >
-                            Bireke
+                            {t("cancel")}
                           </Button>
                           <Button
                             onClick={handleReport}
                             className="bg-primary hover:bg-primary/90"
                           >
-                            Ohereza Raporo
+                            {t("submit_report")}
                           </Button>
                         </div>
                       </div>
