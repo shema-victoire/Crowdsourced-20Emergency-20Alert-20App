@@ -16,6 +16,7 @@ import AuthWrapper from "./components/AuthWrapper";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { LanguageProvider } from "./lib/language-context";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { LoadingSpinner } from "./components/LoadingSpinner";
 
 const queryClient = new QueryClient();
 
