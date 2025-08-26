@@ -344,10 +344,7 @@ export default function Index() {
         setShowLocationShare(false);
 
         // Show sharing options
-        const shareMessage = language === "en"
-          ? "Location sharing started! Share with family via WhatsApp or SMS?"
-          : "Gusangira ahantu byatangiye! Sangira n'umuryango binyuze kuri WhatsApp cyangwa SMS?";
-        const confirmed = confirm(shareMessage);
+        const confirmed = confirm(t("location_sharing_started"));
 
         if (confirmed) {
           locationSharingService.shareViaWhatsApp(shareId);
@@ -785,7 +782,7 @@ export default function Index() {
                     <span className="hidden sm:inline">
                       {t("emergency_contacts")}
                     </span>
-                    <span className="sm:hidden">📞</span>
+                    <span className="sm:hidden">��</span>
                   </Button>
 
                   <Button
