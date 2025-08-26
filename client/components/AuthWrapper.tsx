@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Phone, User, Shield } from "lucide-react";
+import { TRANSLATIONS } from "@/lib/rwanda-data";
 
 interface User {
   id: string;
