@@ -35,7 +35,8 @@ const App = () => (
         <BrowserRouter>
           <LanguageProvider>
             <AuthWrapper>
-            <Routes>
+              <Suspense fallback={<LoadingSpinner />}>
+                <Routes>
               <Route path="/" element={<Index />} />
               <Route
                 path="/report"
@@ -75,7 +76,8 @@ const App = () => (
               />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
+                </Routes>
+              </Suspense>
             </AuthWrapper>
           </LanguageProvider>
         </BrowserRouter>
