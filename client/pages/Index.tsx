@@ -344,11 +344,10 @@ export default function Index() {
         setShowLocationShare(false);
 
         // Show sharing options
-        const confirmed = confirm(
-          language === "en"
-            ? "Location sharing started! Share with family via WhatsApp or SMS?"
-            : "Gusangira ahantu byatangiye! Sangira n'umuryango binyuze kuri WhatsApp cyangwa SMS?",
-        );
+        const shareMessage = language === "en"
+          ? "Location sharing started! Share with family via WhatsApp or SMS?"
+          : "Gusangira ahantu byatangiye! Sangira n'umuryango binyuze kuri WhatsApp cyangwa SMS?";
+        const confirmed = confirm(shareMessage);
 
         if (confirmed) {
           locationSharingService.shareViaWhatsApp(shareId);
@@ -356,11 +355,10 @@ export default function Index() {
       }
     } catch (error) {
       console.error("Failed to start location sharing:", error);
-      alert(
-        language === "en"
-          ? "Failed to access your location"
-          : "Ntabwo byashobokaga kubona ahantu hawe",
-      );
+      const errorMessage = language === "en"
+        ? "Failed to access your location"
+        : "Ntabwo byashobokaga kubona ahantu hawe";
+      alert(errorMessage);
     }
   };
 
