@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Phone, User, Shield } from "lucide-react";
 import { TRANSLATIONS } from "@/lib/rwanda-data";
+import { useLanguage } from "@/lib/language-context";
 
 interface User {
   id: string;
