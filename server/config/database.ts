@@ -1,8 +1,12 @@
 import { Client } from "pg";
 
-const connectionString =
-  process.env.DATABASE_URL ||
-  "postgresql://neondb_owner:npg_3UoY8bmxfOwH@ep-nameless-cloud-ae7iaums-pooler.c-2.us-east-2.aws.neon.tech/neondb?channel_binding=require&sslmode=require";
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+  throw new Error(
+    "DATABASE_URL environment variable is required. Please set it in your environment or .env file."
+  );
+}
 
 export const createDatabaseClient = () => {
   return new Client({
