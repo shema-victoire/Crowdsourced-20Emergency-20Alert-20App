@@ -261,7 +261,7 @@ export default function RwandaEmergencyMap({
       </MapContainer>
 
       {/* Map legend */}
-      <div className="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg text-xs z-1000">
+      <div className="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg text-xs z-10">
         <h4 className="font-bold mb-2">Ibimenyetso</h4>
         <div className="space-y-1">
           <div className="flex items-center gap-2">
