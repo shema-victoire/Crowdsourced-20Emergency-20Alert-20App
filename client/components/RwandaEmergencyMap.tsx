@@ -118,6 +118,12 @@ export default function RwandaEmergencyMap({
   userLocation,
   onLocationSelect,
 }: RwandaEmergencyMapProps) {
+  const { language } = useLanguage();
+
+  const t = (key: keyof typeof TRANSLATIONS) => {
+    return TRANSLATIONS[key][language];
+  };
+
   // Rwanda center coordinates (Kigali)
   const rwandaCenter: [number, number] = [-1.9441, 30.0619];
 
