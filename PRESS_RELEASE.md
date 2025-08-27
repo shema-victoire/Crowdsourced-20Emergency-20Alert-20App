@@ -6,7 +6,7 @@
 
 ## Rwanda Launches Groundbreaking Emergency Response Platform to Transform Public Safety
 
-### *SafeAlert Rwanda Goes Live as East Africa's First Comprehensive Crowdsourced Emergency Alert System*
+### _SafeAlert Rwanda Goes Live as East Africa's First Comprehensive Crowdsourced Emergency Alert System_
 
 **KIGALI, Rwanda** – December 19, 2024 – Rwanda has officially launched SafeAlert Rwanda, a revolutionary emergency response platform that connects citizens, emergency services, and first responders through real-time technology. The platform represents a significant advancement in Rwanda's commitment to public safety and digital innovation.
 
@@ -17,6 +17,7 @@ SafeAlert Rwanda enables citizens to report emergencies instantly through an int
 "SafeAlert Rwanda addresses a critical need in our emergency response ecosystem," said [Spokesperson Name], [Title]. "By empowering citizens to become first responders and providing emergency services with better data, we're building a safer, more resilient Rwanda."
 
 The platform's key features include:
+
 - **Real-time Emergency Mapping**: Interactive visualization of active emergencies across Rwanda
 - **Instant Reporting**: Citizens can report emergencies with precise GPS coordinates in seconds
 - **Bilingual Interface**: Full support for English and Kinyarwanda
@@ -35,6 +36,7 @@ Within hours of launch, SafeAlert Rwanda is actively tracking multiple emergenci
 Unlike international emergency platforms, SafeAlert Rwanda was built specifically for Rwanda's unique geography, administrative structure, and mobile infrastructure. The platform supports all five provinces and 30 districts, with optimization for East African internet connectivity patterns.
 
 Key technical specifications include:
+
 - **Enterprise-grade security** with HTTPS encryption
 - **Mobile-optimized design** for Rwanda's smartphone users
 - **Sub-2 second** average page load time
@@ -66,8 +68,9 @@ SafeAlert Rwanda demonstrates how thoughtful technology development can address 
 ### **Partnership Opportunities**
 
 SafeAlert Rwanda is actively seeking partnerships with:
+
 - Government agencies at national and local levels
-- NGOs and humanitarian organizations  
+- NGOs and humanitarian organizations
 - Private sector companies, particularly telecommunications providers
 - International development organizations
 - Academic institutions for research collaboration
@@ -89,24 +92,29 @@ The initiative supports Rwanda's broader goals of technological innovation, citi
 ### **Media Contact Information**
 
 **For Press Inquiries:**
+
 - Email: press@safealert.rw
 - Phone: +250 788 XXX XXX
 - Platform: https://787881e324e147168ad86f13a32f1b0a-dbb4dd6ed01540b78f3d41918.fly.dev/
 
 **For Technical Information:**
+
 - Email: tech@safealert.rw
 - Documentation: Available upon request
 
 **For Partnership Inquiries:**
+
 - Email: partnerships@safealert.rw
 - Phone: +250 788 XXX XXX
 
 ### **High-Resolution Images and Assets**
+
 Screenshots, logos, and additional media assets available for download at: [Media Kit URL]
 
 ### **Social Media**
+
 - Twitter: @SafeAlertRwanda
-- Facebook: SafeAlert Rwanda Official  
+- Facebook: SafeAlert Rwanda Official
 - LinkedIn: SafeAlert Rwanda
 - Hashtags: #SafeAlertRwanda #EmergencyResponse #Rwanda #PublicSafety
 
@@ -118,19 +126,21 @@ Rwanda continues to lead East Africa in public safety innovation, building on su
 
 **###**
 
-*SafeAlert Rwanda - Building a Safer Rwanda, Together* 🇷🇼
+_SafeAlert Rwanda - Building a Safer Rwanda, Together_ 🇷🇼
 
 ---
 
-**EDITOR'S NOTE**: 
+**EDITOR'S NOTE**:
+
 - SafeAlert Rwanda is available for immediate demonstration to media representatives
 - Emergency services representatives are available for interviews
 - Platform founders available for technical and vision discussions
 - High-resolution screenshots and technical specifications available upon request
 
 **COVERAGE SUGGESTIONS**:
+
 - Technology innovation in public safety
-- Rwanda's digital transformation success stories  
+- Rwanda's digital transformation success stories
 - Community-centered emergency response models
 - East African technological leadership
 - Citizen empowerment through technology
